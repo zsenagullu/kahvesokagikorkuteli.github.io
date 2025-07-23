@@ -1,0 +1,2982 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MENÜ</title>
+
+  <style>
+    /* Genel sayfa fontu ve arka plan ayarları */
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+
+    /* Tüm içeriği ortalamak ve maksimum genişliği sınırlamak için container */
+    .container {
+      max-width: 600px;
+      margin: auto;
+    }
+
+    /* Sayfanın üst kısmındaki başlık alanı */
+    header {
+      text-align: center;
+      background: #8B4513; /* Kahverengi arka plan */
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    /* Menü kategorisi kutusu */
+    .menu-section {
+      background: white;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    /* Kategori başlığı */
+    .section-title {
+      font-size: 1.5em;
+      color: #8B4513;
+      cursor: pointer;
+      margin: 0;
+      padding: 10px 0;
+      text-align: center;
+      border-bottom: 2px solid #8B4513;
+    }
+
+    /* Menü öğelerini kapsayan kısım */
+    .menu-items {
+      margin-top: 10px;
+    }
+
+    /* Tek bir ürün satırı */
+    .menu-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid #ddd;
+      gap: 10px;
+    }
+
+    /* Sol tarafta ürün resmi */
+    .menu-item img.item-image {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      object-fit: cover; /* Taşarsa kırpar, orantılı gösterir */
+    }
+
+    /* Ürün bilgilerini sola yasla */
+    .menu-item .info {
+      flex: 1; /* Boşluğu kaplasın */
+    }
+
+    /* Ürün adı */
+    .item-name {
+      font-weight: bold;
+    }
+
+    /* Ürün açıklamasını gri ve daha küçük yap */
+    .item-description {
+      font-size: 0.9em;
+      color: #666;
+    }
+
+    /* Fiyat kısmını kahverengi ve kalın yap */
+    .item-price {
+      font-weight: bold;
+      color: #8B4513;
+      min-width: 50px; /* Fiyatlar hizalı dursun */
+      text-align: right;
+    }
+
+    /* Son üründe alt çizgiyi kaldır */
+    .menu-item:last-child {
+      border-bottom: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Sayfanın üst kısmındaki başlık -->
+    <header>
+      <!-- Logo ekledik -->
+      <img src="images/logo.png" alt="Logo" style="width:80px; height:80px; border-radius:50%; object-fit:cover;">
+      <h1>Kahve Sokağı Korkuteli</h1>
+      <p>Lezzetli kahvaltılar, makarnalar ve özel kahveler</p>
+    </header>
+
+    <!-- Kahvaltılar kategorisi -->
+    <div class="menu-section">
+      <h2 class="section-title" onclick="toggleMenu('kahvalti')">🥖 Kahvaltılar</h2>
+
+      <div class="menu-items" id="kahvalti" style="display: none;">
+        <!-- Ayaküstü Kahvaltı -->
+        <div class="menu-item">
+          <img class="item-image" src="images/ayakustu.png" alt="Ayaküstü Kahvaltı">
+          <div class="info">
+            <div class="item-name">Ayaküstü Kahvaltı</div>
+            <div class="item-description">beyaz peynir, kaşar peynir, söğüş domates-salatalık, acuka, reçeller, siyah-yeşil zeytin, haşlanmış yumurta, bal-kaymak, çikolata, patates kızartması, sigara böreği, sosis ve kahvaltı boyunca sınırsız çay servis edilir</div>
+          </div>
+          <div class="item-price">280₺</div>
+        </div>
+
+        <!-- Serpme Kahvaltı -->
+        <div class="menu-item">
+          <img class="item-image" src="images/serpme.png" alt="Serpme Kahvaltı">
+          <div class="info">
+            <div class="item-name">Serpme Kahvaltı</div>
+            <div class="item-description">peynir tabağı, söğüş tabağı, acuka, siyah/yeşil zeytin bal- kaymak reçeller tereyağı kızartma tabağı sahanda yumurta tahin pekmez çikolata ceviz ve kahvaltı bounca sınırsız çay servis edilir </div>
+          </div>
+          <div class="item-price">550₺</div>
+        </div>
+
+        <!-- Menemen -->
+        <div class="menu-item">
+          <img class="item-image" src="images/serpme.png" alt="Menemen">
+          <div class="info">
+            <div class="item-name">Menemen</div>
+          </div>
+          <div class="item-price">150₺</div>
+        </div>
+
+        <!-- Kaşarlı Menemen -->
+        <div class="menu-item">
+          <img class="item-image" src="images/serpme.png" alt="Kaşarlı Menemen">
+          <div class="info">
+            <div class="item-name">Kaşarlı Menemen</div>
+            <div class="item-description">Menemene ek olarak bol kaşar peyniri</div>
+          </div>
+          <div class="item-price">150₺</div>
+        </div>
+
+        <!-- Sucuklu Yumurta -->
+        <div class="menu-item">
+          <img class="item-image" src="images/serpme.png" alt="Sucuklu Yumurta">
+          <div class="info">
+            <div class="item-name">Sucuklu Yumurta</div>
+          </div>
+          <div class="item-price">150₺</div>
+        </div>
+
+        <!-- Kıymalı Yumurta -->
+        <div class="menu-item">
+          <img class="item-image" src="images/serpme.png" alt="Kıymalı Yumurta">
+          <div class="info">
+            <div class="item-name">Kıymalı Yumurta</div>
+          </div>
+          <div class="item-price">180₺</div>
+        </div>
+
+      </div>
+    </div>
+
+<!-- Ana Yemekler kategorisi -->
+<div class="menu-section">
+  <!-- Başlığa tıklayınca kategori açılıp kapanacak -->
+  <h2 class="section-title" onclick="toggleMenu('anayemek')">🍗 Ana Yemekler</h2>
+  
+  <!-- Ana yemekler listesi  -->
+  <div class="menu-items" id="anayemek" style="display: none;">
+    
+    <!-- Köri soslu tavuk -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Köri Soslu Tavuk">
+      <div class="info">
+        <div class="item-name">Köri Soslu Tavuk</div>
+        <div class="item-description">Kremalı köri sos, jülyen tavuk parçaları, mantar, yeşil biber. Yanında söğüş ve patates cips ile servis edilir </div>
+      </div>
+      <div class="item-price">250₺</div>
+    </div>
+
+    <!-- Acı soslu tavuk -->
+     <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Acı Soslu Tavuk">
+      <div class="info">
+        <div class="item-name">Acı Soslu Tavuk</div>
+        <div class="item-description">Acı sos, jülyen tavuk parçaları, mantar, yeşil biber. Yanında söğüş ve patates cips ile servis edilir</div>
+      </div>
+      <div class="item-price">250₺</div>
+    </div>
+
+<!-- Barbekü soslu tavuk -->
+     <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Barbekü Soslu Tavuk">
+      <div class="info">
+        <div class="item-name">Barbekü Soslu Tavuk</div>
+        <div class="item-description">Berbekü sos, jülyen tavuk parçaları, yeşil biber. Yanında söğüş ve patates cips ile servis edilir</div>
+      </div>
+      <div class="item-price">250₺</div>
+    </div>
+
+    <!-- Kekikli Kremalı tavuk -->
+     <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Kekikli Kremalı Tavuk">
+      <div class="info">
+        <div class="item-name">Kekikli Kremalı Tavuk</div>
+        <div class="item-description">Kremalı kekikli sos, jülyen tavuk parçaları, mantar, yeşil biber. Yanında söğüş ve patates cips ile servis edilir</div>
+      </div>
+      <div class="item-price">250₺</div>
+    </div>
+
+    <!--  Kremalı Tavuk -->
+     <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Kremalı Tavuk">
+      <div class="info">
+        <div class="item-name">Kremalı Tavuk</div>
+        <div class="item-description">Kremalı sos, jülyen tavuk parçaları, mantar, yeşil biber.Yanında söğüş ve patates cips ile servis edilir</div>
+      </div>
+      <div class="item-price">250₺</div>
+    </div>
+
+    <!--  Izgara Tavuk -->
+     <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Izgara Tavuk">
+      <div class="info">
+        <div class="item-name">Izgara Tavuk</div>
+       <!--  <div class="item-description">açıklama. </div> -->
+      </div>
+      <div class="item-price">250₺</div>
+    </div>
+
+    <!-- Tavuk Fajita -->
+     <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Tavuk Fajita">
+      <div class="info">
+        <div class="item-name">Tavuk Fajita</div>
+        <div class="item-description">Jülyen tavuk, yeşil biber, soğan, mantar.Yanında söğüş ve patates cips ile servis edilir</div>
+      </div>
+      <div class="item-price">260₺</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Hamburgerler kategorisi -->
+<div class="menu-section">
+  <!-- Başlığa tıklayınca kategori açılıp kapanacak -->
+  <h2 class="section-title" onclick="toggleMenu('hamburger')">🍔 Hamburgerler</h2>
+  
+  <!-- Hamburger listesi  -->
+  <div class="menu-items" id="hamburger" style="display: none;">
+    
+    <!-- Big Cheese -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Big Cheese">
+      <div class="info">
+        <div class="item-name">Big Cheese</div>
+        <div class="item-description">Ev yapımıburger köftesi cheddar peniri marul domates salatalık turşusu. yanında söğüş ve patates kızartması ile servis ediliryanında söğüş ve patates kızartması ile servis edilir.</div>
+      </div>
+      <div class="item-price">240₺</div>
+    </div>
+
+    <!--Chicken Ranch Burger -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Chicken Ranch Burger">
+      <div class="info">
+        <div class="item-name">Chicken Ranch Burger</div>
+        <div class="item-description">Açıklama</div>
+      </div>
+      <div class="item-price">250₺</div>
+    </div>
+
+<!--Tavuk Burger -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Tavuk Burger">
+      <div class="info">
+        <div class="item-name">Tavuk Burger</div>
+        <div class="item-description">Çıtır tavuk göğsü cheddar peyniri marul domatessalatalık turşusu. yanında söğüş ve patates kızartması ile servis edilir</div>
+      </div>
+      <div class="item-price">230₺</div>
+    </div>
+
+<!--Smash Burger -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Smash Burger">
+      <div class="info">
+        <div class="item-name">Smash Burger</div>
+        <div class="item-description">Açıklama</div>
+      </div>
+      <div class="item-price">250₺</div>
+    </div>
+
+    <!--Smash Much Burger -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Smash Much Burger">
+      <div class="info">
+        <div class="item-name">Smash Much Burger</div>
+        <div class="item-description">Açıklama</div>
+      </div>
+      <div class="item-price">260₺</div>
+    </div>
+
+    <!--Double Burger -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Double Burger">
+      <div class="info">
+        <div class="item-name">Double Burger</div>
+        <div class="item-description">Ev yapımı çift burger köftesi cheddar peniri marul domates salatalık turşusu. yanında söğüş ve patates kızartması ile servis ediliryanında söğüş ve patates kızartması ile servis edilir</div>
+      </div>
+      <div class="item-price">250₺</div>
+    </div>
+
+    <!--Smooky Burger -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Smooky Burger">
+      <div class="info">
+        <div class="item-name">Smooky Burger</div>
+        <div class="item-description">Ev yapımı burger köftesi dana kavurma, cheddar peyniri marul domates salatalık turşusu.yanında söğüş ve patates kızartması ile servis edilir</div>
+      </div>
+      <div class="item-price">275₺</div>
+    </div>
+
+    <!-- Burger  Salata-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Burger  Salata">
+      <div class="info">
+        <div class="item-name">Burger  Salata</div>
+        <div class="item-description">Açıklama</div>
+      </div>
+      <div class="item-price">230₺</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Pizzalar kategorisi -->
+<div class="menu-section">
+  <!-- Başlığa tıklayınca kategori açılıp kapanacak -->
+  <h2 class="section-title" onclick="toggleMenu('pizza')">🍕 Pizzalar</h2>
+  
+  <!-- Pizza listesi  -->
+  <div class="menu-items" id="pizza" style="display: none;">
+    
+    <!-- Barbekü Soslu Tavuklu Pizza -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Barbekü Soslu Tavuklu Pizza">
+      <div class="info">
+        <div class="item-name">Barbekü Soslu Tavuklu Pizza</div>
+        <div class="item-description">Açıklama</div>
+      </div>
+      <div class="item-price">230₺</div>
+    </div>
+
+     <!-- Karışık Pizza -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Karışık Pizza">
+      <div class="info">
+        <div class="item-name">Karışık Pizza</div>
+        <div class="item-description">Açıklama</div>
+      </div>
+      <div class="item-price">230₺</div>
+    </div>
+    
+   </div>
+  </div>
+
+  <!-- Makarnalar kategorisi -->
+<div class="menu-section">
+  <!-- Başlığa tıklayınca kategori açılıp kapanacak -->
+  <h2 class="section-title" onclick="toggleMenu('makarna')">🍝 Makarnalar</h2>
+  
+  <!-- Makarna listesi  -->
+  <div class="menu-items" id="makarna" style="display: none;">
+    
+    <!-- Köri Soslu Tavuklu Penne -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Köri Soslu Tavuklu Penne">
+      <div class="info">
+        <div class="item-name">Köri Soslu Tavuklu Penne</div>
+        <div class="item-description">Kremalı köri sos, jülyen tavuk parçaları, mantar, yeşil biber</div>
+      </div>
+      <div class="item-price">230₺</div>
+    </div>
+
+
+
+    <!--Acı Soslu Tavuklu Penne -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Acı Soslu Tavuklu Penne">
+      <div class="info">
+        <div class="item-name">Acı Soslu Tavuklu Penne</div>
+        <div class="item-description">Acı sos, jülyen tavuk parçaları, mantar, yeşil biber</div>
+      </div>
+      <div class="item-price">230₺</div>
+    </div>
+
+     <!--Barbekü Soslu Tavuklu Penne -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Barbekü Soslu Tavuklu Penne">
+      <div class="info">
+        <div class="item-name">Barbekü Soslu Tavuklu Penne</div>
+        <div class="item-description">Barbekü sos, jülyen tavuk parçaları, mantar, yeşil biber</div>
+      </div>
+      <div class="item-price">230₺</div>
+    </div>
+
+    <!--Kremalı Tavuklu Penne -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Kremalı Tavuklu Penne">
+      <div class="info">
+        <div class="item-name">Kremalı Tavuklu Penne</div>
+        <div class="item-description">Krema sos, jülyen tavuk parçaları, mantar, yeşil biber</div>
+      </div>
+      <div class="item-price">230₺</div>
+    </div>
+
+
+    </div>
+  </div>
+
+  <!-- Wrapler kategorisi -->
+<div class="menu-section">
+  <!-- Başlığa tıklayınca kategori açılıp kapanacak -->
+  <h2 class="section-title" onclick="toggleMenu('wrap')">🌯 Wrapler</h2>
+  
+  <!-- Wrap listesi  -->
+  <div class="menu-items" id="wrap" style="display: none;">
+    
+    <!--Tavuklu Wrap -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Tavuklu Wrap">
+      <div class="info">
+        <div class="item-name">Tavuklu Wrap</div>
+        <div class="item-description">Tavuk parçaları krema mantar yeşil biber üzerine kaşar peyniri lavaş ekmeğine sarılır.söğüş ve patares cips ile servis edilir</div>
+      </div>
+      <div class="item-price">190₺</div>
+    </div>
+
+    <!--Köfteli Wrap -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Köfteli Wrap">
+      <div class="info">
+        <div class="item-name">Köfteli Wrap</div>
+        <div class="item-description">Ev yapımı burger köftesi marul domates lavaş ekmeğine sarılır.Söğüş ve patates cips ile servis edilir.</div>
+      </div>
+      <div class="item-price">220₺</div>
+    </div>
+
+     </div>
+  </div>
+
+   <!-- Salatalar kategorisi -->
+<div class="menu-section">
+  <!-- Başlığa tıklayınca kategori açılıp kapanacak -->
+  <h2 class="section-title" onclick="toggleMenu('salata')">🥗 Salatalar</h2>
+  
+  <!-- Salata listesi  -->
+  <div class="menu-items" id="salata" style="display: none;">
+    
+    <!--Izgara Tavuk Salata -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Izgara Tavuk Salata">
+      <div class="info">
+        <div class="item-name">Izgara Tavuk Salata</div>
+      </div>
+      <div class="item-price">180₺</div>
+    </div>
+
+    <!--Sezar Salata -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Sezar Salata">
+      <div class="info">
+        <div class="item-name">Sezar Salata</div>
+      </div>
+      <div class="item-price">190₺</div>
+    </div>
+
+    <!--Ton Balıklı Salata -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Ton Balıklı Salata">
+      <div class="info">
+        <div class="item-name">Ton Balıklı Salata</div>
+      </div>
+      <div class="item-price">180₺</div>
+    </div>
+
+     <!--Roka Salata -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Roka Salata">
+      <div class="info">
+        <div class="item-name">Roka Salata</div>
+      </div>
+      <div class="item-price">160₺</div>
+    </div>
+
+     </div>
+  </div>
+
+ <!-- Tostlar kategorisi -->
+<div class="menu-section">
+  <!-- Başlığa tıklayınca kategori açılıp kapanacak -->
+  <h2 class="section-title" onclick="toggleMenu('tost')">🥪 Tostlar</h2>
+  
+  <!-- Tost listesi  -->
+  <div class="menu-items" id="tost" style="display: none;">
+    
+    <!--Kaşarlı Tost -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Kaşarlı Tost">
+      <div class="info">
+        <div class="item-name">Kaşarlı Tost</div>
+      </div>
+      <div class="item-price">140₺</div>
+    </div>
+
+    <!--Sucuklu Tost-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Sucuklu Tost">
+      <div class="info">
+        <div class="item-name">Sucuklu Tost</div>
+      </div>
+      <div class="item-price">140₺</div>
+    </div>
+
+    <!--Karışık Tost -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Karışık Tost">
+      <div class="info">
+        <div class="item-name">Karışık Tost</div>
+      </div>
+      <div class="item-price">160₺</div>
+    </div>
+
+     <!--Sucuklu Yumurtalı Tost -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Sucuklu Yumurtalı Tost">
+      <div class="info">
+        <div class="item-name">Sucuklu Yumurtalı Tost</div>
+      </div>
+      <div class="item-price">160₺</div>
+    </div>
+
+     <!--Sucuklu Kaşarlı Bazlama Tost -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Sucuklu Kaşarlı Bazlama Tost">
+      <div class="info">
+        <div class="item-name">Sucuklu Kaşarlı Bazlama Tost</div>
+      </div>
+      <div class="item-price">175₺</div>
+    </div>
+
+    <!--Kavurmalı Bazlama Tost -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="KavurmalıBazlama Tost">
+      <div class="info">
+        <div class="item-name">Kavurmalı Bazlama Tost</div>
+      </div>
+      <div class="item-price">190₺</div>
+    </div>
+
+    <!--Kaşarlı Yumurtalı Tost -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Kaşarlı Yumurtalı Tost">
+      <div class="info">
+        <div class="item-name">Kaşarlı Yumurtalı Tost</div>
+      </div>
+      <div class="item-price">160₺</div>
+    </div>
+
+    <!--Ayvalık Tost -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Ayvalık Tost">
+      <div class="info">
+        <div class="item-name">Ayvalık Tost</div>
+        <div class="item-description">Sosis, sucuk, kaşar peyniri ve salatalık turşusula hazırlanır. Söğüş ve patates cips ile servis edilir.</div>
+      </div>
+      <div class="item-price">175₺</div>
+    </div>
+
+     <!--4 Peynirli Tost -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="4 Peynirli Tost">
+      <div class="info">
+        <div class="item-name">4 Peynirli Tost</div>
+        <div class="item-description">Beyaz peynir,cheddar, kaşar peynir, çeçil</div>
+      </div>
+      <div class="item-price">170₺</div>
+    </div>
+
+     <!--Kaşarlı Biberli Tost -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Kaşarlı Biberli Tost">
+      <div class="info">
+        <div class="item-name">Kaşarlı Biberli Tost</div>
+        
+      </div>
+      <div class="item-price">170₺</div>
+    </div>
+
+    <!--Yengen -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Yengen">
+      <div class="info">
+        <div class="item-name">Yengen</div>
+        <div class="item-description">Açıklama</div>
+      </div>
+      <div class="item-price">175₺</div>
+    </div>
+
+     </div>
+  </div>
+
+  <!-- Sandviçler kategorisi -->
+<div class="menu-section">
+  <!-- Başlığa tıklayınca kategori açılıp kapanacak -->
+  <h2 class="section-title" onclick="toggleMenu('sandviç')">🍞 Sandviçler</h2>
+  
+  <!-- Sandviç listesi  -->
+  <div class="menu-items" id="sandviç" style="display: none;">
+    
+    <!--Çıtır Tavuk Sandviç -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Çıtır Tavuk Sandviç">
+      <div class="info">
+        <div class="item-name">Çıtır Tavuk Sandviç</div>
+        <div class="item-description">Açıklama</div>
+      </div>
+      <div class="item-price">180₺</div>
+    </div>
+
+    <!--Köfteli Sandviç-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Köfteli Sandviç">
+      <div class="info">
+        <div class="item-name">Köfteli Sandviç</div>
+        <div class="item-description">Açıklama</div>
+      </div>
+      <div class="item-price">200₺</div>
+    </div>
+
+    <!--Hot Dog -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Hot Dog ">
+      <div class="info">
+        <div class="item-name">Hot Dog </div>
+        <div class="item-description">Açıklama</div>
+      </div>
+      <div class="item-price">190₺</div>
+    </div>
+
+     <!--Patso -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Patso">
+      <div class="info">
+        <div class="item-name">Patso</div>
+        <div class="item-description">Açıklama</div>
+      </div>
+      <div class="item-price">140₺</div>
+    </div>
+
+     </div>
+  </div>
+
+<!-- Aperatifler kategorisi -->
+<div class="menu-section">
+  <!-- Başlığa tıklayınca kategori açılıp kapanacak -->
+  <h2 class="section-title" onclick="toggleMenu('aperatif')">🥨 Aperatifler</h2>
+  
+  <!-- Aperatifler listesi  -->
+  <div class="menu-items" id="aperatif" style="display: none;">
+    
+    <!--Ara Sıcak Sepeti -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Ara Sıcak Sepeti">
+      <div class="info">
+        <div class="item-name">Ara Sıcak Sepeti</div>
+        <div class="item-description">Patates cips/çıtır tavuk/sosis/sigara böreği/soğan halkası</div>
+      </div>
+      <div class="item-price">180₺</div>
+    </div>
+
+    <!--Parmak Tavuk ve Cips Tabağı-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Parmak Tavuk ve Cips Tabağı">
+      <div class="info">
+        <div class="item-name">Parmak Tavuk ve Cips Tabağı</div>
+        <div class="item-description">Çıtır tavuk ve patates cips ile servis edilir.</div>
+      </div>
+      <div class="item-price">200₺</div>
+    </div>
+
+    <!--Cips Tabağı  -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Cips Tabağı ">
+      <div class="info">
+        <div class="item-name">Cips Tabağı </div>
+       
+      </div>
+      <div class="item-price">150₺</div>
+    </div>
+
+     <!--Soğan Halkası Sepeti -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Soğan Halkası Sepeti">
+      <div class="info">
+        <div class="item-name">Soğan Halkası Sepeti</div>
+        <div class="item-description">Soğan halkası ve patates cips ile servis edilir.</div>
+      </div>
+      <div class="item-price">200₺</div>
+    </div>
+
+     <!--Sigara Böreği Sepeti -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Sigara Böreği Sepeti">
+      <div class="info">
+        <div class="item-name">Sigara Böreği Sepeti</div>
+        <div class="item-description">Sigara böreği ve patates cips ile servis edilir.</div>
+      </div>
+      <div class="item-price">200₺</div>
+    </div>
+
+     <!--Sosis Böreği Sepeti -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Sosis Böreği Sepeti">
+      <div class="info">
+        <div class="item-name">Sosis Böreği Sepeti</div>
+        <div class="item-description">Sigara böreği ve patates cips ile servis edilir.</div>
+      </div>
+      <div class="item-price">200₺</div>
+    </div>
+
+     </div>
+  </div>
+
+  <!-- Çocuk Menüsü -->
+<div class="menu-section">
+  <!-- Başlığa tıklayınca kategori açılıp kapanacak -->
+  <h2 class="section-title" onclick="toggleMenu('çocuk')">🧸 Çocuk Menüsü</h2>
+  
+  <!-- Çocuk Menüsü listesi  -->
+  <div class="menu-items" id="çocuk" style="display: none;">
+    
+    <!--Izgara Tavuk -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Izgara Tavuk">
+      <div class="info">
+        <div class="item-name">Izgara Tavuk</div>
+        <div class="item-description">Açıklama</div>
+      </div>
+      <div class="item-price">180₺</div>
+    </div>
+
+    <!--Izgara Köfte -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Izgara Köfte">
+      <div class="info">
+        <div class="item-name">Izgara Köfte</div>
+        <div class="item-description">Açıklama</div>
+      </div>
+      <div class="item-price">200₺</div>
+    </div>
+
+     </div>
+  </div>
+
+  <!-- Waffle & Fondü -->
+<div class="menu-section">
+  <!-- Başlığa tıklayınca kategori açılıp kapanacak -->
+  <h2 class="section-title" onclick="toggleMenu('waffle')">🧇 Waffle & Fondü</h2>
+  
+  <!-- Waffle & Fondü listesi  -->
+  <div class="menu-items" id="waffle" style="display: none;">
+    
+    <!--İdeal Waffle -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="İdeal Waffle">
+      <div class="info">
+        <div class="item-name">İdeal Waffle</div>
+  
+      </div>
+      <div class="item-price">150₺</div>
+    </div>
+
+    <!--Dondurmalı Waffle -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Dondurmalı Waffle">
+      <div class="info">
+        <div class="item-name">Dondurmalı Waffle</div>
+       
+      </div>
+      <div class="item-price">275₺</div>
+    </div>
+
+    <!--Double Waffle -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Double Waffle">
+      <div class="info">
+        <div class="item-name">Double Waffle</div>
+      
+      </div>
+      <div class="item-price">350₺</div>
+    </div>
+
+    <!--Tek Meyve Waffle -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Tek Meyve Waffle">
+      <div class="info">
+        <div class="item-name">Tek Meyve Waffle</div>
+        <div class="item-description">çilek/muz/kivi</div>
+      </div>
+      <div class="item-price">220₺</div>
+    </div>
+
+     <!--Beyaz Çikolatalı Waffle -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Beyaz Çikolatalı Waffle">
+      <div class="info">
+        <div class="item-name">Beyaz Çikolatalı Waffle</div>
+      
+      </div>
+      <div class="item-price">250₺</div>
+    </div>
+
+    <!--Bardak Waffle -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Bardak Waffle">
+      <div class="info">
+        <div class="item-name">Bardak Waffle</div>
+  
+      </div>
+      <div class="item-price">200₺</div>
+    </div>
+
+    <!--Tek Kişilik Fondü -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Tek Kişilik Fondü">
+      <div class="info">
+        <div class="item-name">Tek Kişilik Fondü</div>
+     
+      </div>
+      <div class="item-price">200₺</div>
+    </div>
+
+    <!--Çift Kişilik Fondü -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Çift Kişilik Fondü">
+      <div class="info">
+        <div class="item-name">Çift Kişilik Fondü</div>
+       
+      </div>
+      <div class="item-price">250₺</div>
+    </div>
+
+    <!--Meyve Tabağı -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Meyve Tabağı">
+      <div class="info">
+        <div class="item-name">Meyve Tabağı</div>
+      
+      </div>
+      <div class="item-price">250₺</div>
+    </div>
+
+
+     </div>
+  </div>
+
+   <!-- Künefeler -->
+<div class="menu-section">
+  <!-- Başlığa tıklayınca kategori açılıp kapanacak -->
+  <h2 class="section-title" onclick="toggleMenu('künefe')">🥧 Künefeler</h2>
+  
+  <!-- Künefe listesi  -->
+  <div class="menu-items" id="künefe" style="display: none;">
+    
+    <!--Dondurmalı Künefe -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Dondurmalı Künefe">
+      <div class="info">
+        <div class="item-name">Dondurmalı Künefe</div>
+  
+      </div>
+      <div class="item-price">175₺</div>
+    </div>
+
+    <!--Kaymaklı Künefe -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Kaymaklı Künefe">
+      <div class="info">
+        <div class="item-name">Kaymaklı Künefe</div>
+       
+      </div>
+      <div class="item-price">175₺</div>
+    </div>
+
+    </div>
+  </div>
+
+  <!-- Pastalar -->
+<div class="menu-section">
+  <!-- Başlığa tıklayınca kategori açılıp kapanacak -->
+  <h2 class="section-title" onclick="toggleMenu('pasta')">🍰 Pastalar</h2>
+  
+  <!-- Pasta listesi  -->
+  <div class="menu-items" id="pasta" style="display: none;">
+    
+    <!--Fıstık Rüyası -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Fıstık Rüyası">
+      <div class="info">
+        <div class="item-name">Fıstık Rüyası</div>
+   
+      </div>
+      <div class="item-price">150₺</div>
+    </div>
+
+    <!--Nutella Pasta -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Nutella Pasta">
+      <div class="info">
+        <div class="item-name">Nutella Pasta</div>
+    
+      </div>
+      <div class="item-price">150₺</div>
+    </div>
+
+    <!--San Sebastian -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="San Sebastian">
+      <div class="info">
+        <div class="item-name">San Sebastian</div>
+   
+      </div>
+      <div class="item-price">150₺</div>
+    </div>
+
+     <!--Mozaik Pasta -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Mozaik Pasta">
+      <div class="info">
+        <div class="item-name">Mozaik Pasta</div>
+       
+      </div>
+      <div class="item-price">145₺</div>
+    </div>
+
+    <!--Orman Meyveli Pasta -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Orman Meyveli Pasta">
+      <div class="info">
+        <div class="item-name">Orman Meyveli Pasta</div>
+      
+      </div>
+      <div class="item-price">150₺</div>
+    </div>
+
+    <!--Karaorman Meyveli Pasta -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Karaorman Meyveli Pasta">
+      <div class="info">
+        <div class="item-name">Karaorman Meyveli Pasta</div>
+       
+      </div>
+      <div class="item-price">150₺</div>
+    </div>
+
+    <!--Frambuaz Orman Meyveli Pasta -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Frambuaz Orman Meyveli Pasta">
+      <div class="info">
+        <div class="item-name">Frambuaz Orman Meyveli Pasta</div>
+       
+      </div>
+      <div class="item-price">150₺</div>
+    </div>
+
+     <!--Belçika Çikolatalı Pasta -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Belçika Çikolatalı Pasta">
+      <div class="info">
+        <div class="item-name">Belçika Çikolatalı Pasta</div>
+        
+      </div>
+      <div class="item-price">150₺</div>
+    </div>
+
+ <!--Devil's Pasta -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Devil's Pasta">
+      <div class="info">
+        <div class="item-name">Devil's Pasta</div>
+       
+      </div>
+      <div class="item-price">150₺</div>
+    </div>
+
+<!--Tiramisu -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Tiramisu">
+      <div class="info">
+        <div class="item-name">Tiramisu</div>
+       
+      </div>
+      <div class="item-price">150₺</div>
+    </div>
+
+    <!--Marlenka -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Marlenka">
+      <div class="info">
+        <div class="item-name">Marlenka</div>
+       <div class="item-description">Ilık süt ve bal ile servis edilir.</div>
+      </div>
+      <div class="item-price">150₺</div>
+    </div>
+
+     <!--Bella Vista -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Bella Vista">
+      <div class="info">
+        <div class="item-name">Bella Vista</div>
+     
+      </div>
+      <div class="item-price">150₺</div>
+    </div>
+
+<!--Sufle -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Sufle">
+      <div class="info">
+        <div class="item-name">Sufle</div>
+       
+      </div>
+      <div class="item-price">150₺</div>
+    </div>
+
+    <!--Frambuazlı  Cheesecake -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Frambuazlı  Cheesecake">
+      <div class="info">
+        <div class="item-name">Frambuazlı  Cheesecake</div>
+     
+      </div>
+      <div class="item-price">150₺</div>
+    </div>
+
+<!--Limonlu  Cheesecake -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Limonlu  Cheesecake">
+      <div class="info">
+        <div class="item-name">Limonlu  Cheesecake</div>
+       
+      </div>
+      <div class="item-price">150₺</div>
+    </div>
+
+    </div>
+  </div>
+
+   <!-- Dondurmalar -->
+<div class="menu-section">
+  <!-- Başlığa tıklayınca kategori açılıp kapanacak -->
+  <h2 class="section-title" onclick="toggleMenu('dondurma')">🍨 Dondurmalar</h2>
+  
+  <!-- Dondurma listesi  -->
+  <div class="menu-items" id="dondurma" style="display: none;">
+    
+    <!--Çikolatalı -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Çikolatalı Dondurma">
+      <div class="info">
+        <div class="item-name">Çikolatalı Dondurma</div>
+       
+      </div>
+      <div class="item-price">50₺</div>
+    </div>
+
+    <!--Karamelli -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Karamelli Dondurma">
+      <div class="info">
+        <div class="item-name">Karamelli Dondurma</div>
+      
+      </div>
+      <div class="item-price">50₺</div>
+    </div>
+
+     <!--Çilekli -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Çilekli Dondurma">
+      <div class="info">
+        <div class="item-name">Çilekli Dondurma</div>
+       
+      </div>
+      <div class="item-price">50₺</div>
+    </div>
+
+     <!--Sade -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Sade Dondurma">
+      <div class="info">
+        <div class="item-name">Sade Dondurma</div>
+       
+      </div>
+      <div class="item-price">50₺</div>
+    </div>
+
+     <!--Vişneli -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Vişneli Dondurma">
+      <div class="info">
+        <div class="item-name">Vişneli Dondurma</div>
+      
+      </div>
+      <div class="item-price">50₺</div>
+    </div>
+
+     <!--Yanıksı -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Yanıksı Dondurma">
+      <div class="info">
+        <div class="item-name">Yanıksı Dondurma</div>
+        
+      </div>
+      <div class="item-price">50₺</div>
+    </div>
+
+    <!--Kavunlu -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Kavunlu Dondurma">
+      <div class="info">
+        <div class="item-name">Kavunlu Dondurma</div>
+       
+      </div>
+      <div class="item-price">50₺</div>
+    </div>
+
+    <!--Limonlu -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Limonlu Dondurma">
+      <div class="info">
+        <div class="item-name">Limonlu Dondurma</div>
+        
+      </div>
+      <div class="item-price">50₺</div>
+    </div>
+
+    <!--İtalyan Karamelli -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="İtalyan Karamelli Dondurma">
+      <div class="info">
+        <div class="item-name">İtalyan Karamelli Dondurma</div>
+       
+      </div>
+      <div class="item-price">50₺</div>
+    </div>
+
+    <!--250 gr. -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="250 gr.">
+      <div class="info">
+        <div class="item-name">250 gr.</div>
+       
+      </div>
+      <div class="item-price">100₺</div>
+    </div>
+
+    <!--500 gr. -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="500 gr.">
+      <div class="info">
+        <div class="item-name">500 gr.</div>
+       
+      </div>
+      <div class="item-price">200₺</div>
+    </div>
+
+     <!--1 kg. -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="1 kg.">
+      <div class="info">
+        <div class="item-name">1 kg.</div>
+       
+      </div>
+      <div class="item-price">380₺</div>
+    </div>
+
+    </div>
+  </div>
+
+  <!-- Türk Kahveleri -->
+<div class="menu-section">
+  <!-- Başlığa tıklayınca kategori açılıp kapanacak -->
+  <h2 class="section-title" onclick="toggleMenu('tkahvesi')">☕ Türk Kahveleri</h2>
+  
+  <!-- Türk Kahvesi listesi  -->
+  <div class="menu-items" id="tkahvesi" style="display: none;">
+    
+    <!--Türk Kahvesi -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Türk Kahvesi">
+      <div class="info">
+        <div class="item-name">Türk Kahvesi</div>
+        
+      </div>
+      <div class="item-price">80₺</div>
+    </div>
+
+    <!--Damla Sakızlı Türk Kahvesi -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Damla Sakızlı Türk Kahvesi">
+      <div class="info">
+        <div class="item-name">Damla Sakızlı Türk Kahvesi</div>
+       
+      </div>
+      <div class="item-price">80₺</div>
+    </div>
+
+     <!--Dibek Türk Kahvesi -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Dibek Türk Kahvesi">
+      <div class="info">
+        <div class="item-name">Dibek Türk Kahvesi</div>
+     
+      </div>
+      <div class="item-price">80₺</div>
+    </div>
+
+     <!--Menengiç Türk Kahvesi -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Menengiç Türk Kahvesi">
+      <div class="info">
+        <div class="item-name">Menengiç Türk Kahvesi</div>
+       
+      </div>
+      <div class="item-price">80₺</div>
+    </div>
+
+     <!--Sütlü Türk Kahvesi -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Sütlü Türk Kahvesi">
+      <div class="info">
+        <div class="item-name">Sütlü Türk Kahvesi</div>
+       
+      </div>
+      <div class="item-price">80₺</div>
+    </div>
+
+     <!-- Double Sütlü Türk Kahvesi -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Double Sütlü Türk Kahvesi">
+      <div class="info">
+        <div class="item-name">Double Sütlü Türk Kahvesi</div>
+       
+      </div>
+      <div class="item-price">90₺</div>
+    </div>
+
+    <!--Double Türk Kahvesi -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Double Türk Kahvesi">
+      <div class="info">
+        <div class="item-name">Double Türk Kahvesi</div>
+        
+      </div>
+      <div class="item-price">90₺</div>
+    </div>
+
+    <!--Süvari Türk Kahvesi -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Süvari Türk Kahvesi">
+      <div class="info">
+        <div class="item-name">Süvari Türk Kahvesi</div>
+     
+      </div>
+      <div class="item-price">80₺</div>
+    </div>
+
+    <!--Sütlü Süvari Türk Kahvesi -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Sütlü Süvari Türk Kahvesi">
+      <div class="info">
+        <div class="item-name">Sütlü Süvari Türk Kahvesi</div>
+        
+      </div>
+      <div class="item-price">80₺</div>
+    </div>
+
+    </div>
+  </div>
+
+  <!-- Filtre Kahveler -->
+<div class="menu-section">
+  <!-- Başlığa tıklayınca kategori açılıp kapanacak -->
+  <h2 class="section-title" onclick="toggleMenu('fkahve')">Filtre Kahveler</h2>
+  
+  <!-- Filtre Kahve listesi  -->
+  <div class="menu-items" id="fkahve" style="display: none;">
+    
+    <!--Filtre Kahve -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Filtre Kahve">
+      <div class="info">
+        <div class="item-name">Filtre Kahve</div>
+       
+      </div>
+      <div class="item-price">100₺</div>
+    </div>
+
+    <!--Sütlü Filtre Kahve -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Sütlü Filtre Kahve">
+      <div class="info">
+        <div class="item-name">Sütlü Filtre Kahve</div>
+       
+      </div>
+      <div class="item-price">110₺</div>
+    </div>
+
+     <!--Aromalı Filtre Kahve -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Aromalı Filtre Kahve">
+      <div class="info">
+        <div class="item-name">Aromalı Filtre Kahve</div>
+        <div class="item-description">fındık/karamel/vanilya</div>
+      </div>
+      <div class="item-price">110₺</div>
+    </div>
+
+     <!--V60 Filtre Kahve -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="V60 Filtre Kahve">
+      <div class="info">
+        <div class="item-name">V60 Filtre Kahve</div>
+        <div class="item-description">Açıklama</div>
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+     <!--Black Eye-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Black Eye">
+      <div class="info">
+        <div class="item-name">Black Eye</div>
+        <div class="item-description">2 shot espresso üzeri filtre kahve</div>
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+     <!-- İlave Süt -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="İlave Süt">
+      <div class="info">
+        <div class="item-name">İlave Süt</div>
+        
+      </div>
+      <div class="item-price">20₺</div>
+    </div>
+
+ </div>
+</div>
+
+    <!-- Çay ve Bitki Çayları -->
+<div class="menu-section">
+  <!-- Başlığa tıklayınca kategori açılıp kapanacak -->
+  <h2 class="section-title" onclick="toggleMenu('çay')">Çay ve Bitki Çayları</h2>
+  
+  <!-- Çay ve Bitki Çayı listesi  -->
+  <div class="menu-items" id="çay" style="display: none;">
+    
+    <!--Bardak Çay -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Bardak Çay">
+      <div class="info">
+        <div class="item-name">Bardak Çay</div>
+        
+      </div>
+      <div class="item-price">15₺</div>
+    </div>
+
+    <!--Fincan Çay -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Fincan Çay">
+      <div class="info">
+        <div class="item-name">Fincan Çay</div>
+       
+      </div>
+      <div class="item-price">35₺</div>
+    </div>
+
+     <!--Kivi Çayı -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Kivi Çayı">
+      <div class="info">
+        <div class="item-name">Kivi Çayı</div>
+      
+      </div>
+      <div class="item-price">20₺</div>
+    </div>
+
+     <!--Karadut Çayı-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Karadut Çayı">
+      <div class="info">
+        <div class="item-name">Karadut Çayı</div>
+      
+      </div>
+      <div class="item-price">20₺</div>
+    </div>
+
+     <!--Adaçayı-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Adaçayı">
+      <div class="info">
+        <div class="item-name">Adaçayı</div>
+        
+      </div>
+      <div class="item-price">65₺</div>
+    </div>
+
+     <!-- Ihlamur -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Ihlamur">
+      <div class="info">
+        <div class="item-name">Ihlamur</div>
+       
+      </div>
+      <div class="item-price">65₺</div>
+    </div>
+
+    <!-- Yeşilçay -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Yeşilçay">
+      <div class="info">
+        <div class="item-name">Yeşilçay</div>
+       
+      </div>
+      <div class="item-price">65₺</div>
+    </div>
+
+     <!--Yaseminli Yeşilçay -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Yaseminli Yeşilçay">
+      <div class="info">
+        <div class="item-name">Yaseminli Yeşilçay</div>
+       
+      </div>
+      <div class="item-price">65₺</div>
+    </div>
+
+    <!--Papatya Çayı -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Papatya Çayı">
+      <div class="info">
+        <div class="item-name">Papatya Çayı</div>
+       
+      </div>
+      <div class="item-price">65₺</div>
+    </div>
+
+    <!--Kış Çayı -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Kış Çayı">
+      <div class="info">
+        <div class="item-name">Kış Çayı</div>
+       
+      </div>
+      <div class="item-price">65₺</div>
+    </div>
+
+ <!--Zencefil Limon -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Zencefil Limon">
+      <div class="info">
+        <div class="item-name">Zencefil Limon</div>
+        
+      </div>
+      <div class="item-price">65₺</div>
+    </div>
+
+    <!--Nane Limon -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Nane Limon">
+      <div class="info">
+        <div class="item-name">Nane Limon</div>
+       
+      </div>
+      <div class="item-price">65₺</div>
+    </div>
+
+     <!--Elma Tarçın -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Elma Tarçın">
+      <div class="info">
+        <div class="item-name">Elma Tarçın</div>
+       
+      </div>
+      <div class="item-price">65₺</div>
+    </div>
+
+    </div>
+  </div>
+
+   <!--Frappeler -->
+<div class="menu-section">
+  <!-- Başlığa tıklayınca kategori açılıp kapanacak -->
+  <h2 class="section-title" onclick="toggleMenu('frappe')">Frappeler</h2>
+  
+  <!-- Frappe listesi  -->
+  <div class="menu-items" id="frappe" style="display: none;">
+    
+    <!--Fındık Frappe -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Fındık Frappe ">
+      <div class="info">
+        <div class="item-name">Fındık Frappe </div>
+       
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+    <!--Karamel Frappe-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Karamel Frappe">
+      <div class="info">
+        <div class="item-name">Karamel Frappe</div>
+        
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+     <!--Lotus Frappe-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Lotus Frappe">
+      <div class="info">
+        <div class="item-name">Lotus Frappe</div>
+        
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+     <!--Oreo Frappe-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Oreo Frappe">
+      <div class="info">
+        <div class="item-name">Oreo Frappe</div>
+       
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+     <!--Salted Kramel Frappe-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Salted Kramel Frappe">
+      <div class="info">
+        <div class="item-name">Salted Kramel Frappe</div>
+       
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+     <!-- Vanilya Frappe -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Vanilya Frappe">
+      <div class="info">
+        <div class="item-name">Vanilya Frappe</div>
+        
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+    </div>
+  </div>
+
+  <!--Frozenlar -->
+<div class="menu-section">
+  <!-- Başlığa tıklayınca kategori açılıp kapanacak -->
+  <h2 class="section-title" onclick="toggleMenu('frozen')">Frozenlar</h2>
+  
+  <!-- Frozen listesi  -->
+  <div class="menu-items" id="frozen" style="display: none;">
+    
+    <!--Ananas Frozen -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Ananas Frozen ">
+      <div class="info">
+        <div class="item-name">Ananas Frozen</div>
+        
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+    <!--Çarkıfelek Frozen -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Çarkıfelek Frozen ">
+      <div class="info">
+        <div class="item-name">Çarkıfelek Frozen</div>
+        
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+    <!--Çilek Frozen -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Çilek Frozen ">
+      <div class="info">
+        <div class="item-name">Çilek Frozen</div>
+        
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+     <!--Yeşil Elma Frozen -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Yeşil Elma  Frozen ">
+      <div class="info">
+        <div class="item-name">Yeşil Elma Frozen</div>
+       
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+     <!--Karadut Frozen -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Karadut Frozen ">
+      <div class="info">
+        <div class="item-name">Karadut Frozen</div>
+        
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+    <!--Kivi Frozen -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Kivi Frozen ">
+      <div class="info">
+        <div class="item-name">Kivi Frozen</div>
+        
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+    <!--Muz Frozen -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Muz Frozen ">
+      <div class="info">
+        <div class="item-name">Muz Frozen</div>
+        
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+    <!--Şeftali Frozen -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Şeftali Frozen ">
+      <div class="info">
+        <div class="item-name">Şeftali Frozen</div>
+       
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+     <!--Kırmızı Orman Meyveli Frozen -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Kırmızı Orman Meyveli Frozen ">
+      <div class="info">
+        <div class="item-name">Kırmızı Orman Meyveli Frozen</div>
+        
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+     </div>
+  </div>
+
+   <!--Kokteyler -->
+<div class="menu-section">
+  <!-- Başlığa tıklayınca kategori açılıp kapanacak -->
+  <h2 class="section-title" onclick="toggleMenu('kokteyl')">Kokteyler</h2>
+  
+  <!-- Kokteyl listesi  -->
+  <div class="menu-items" id="kokteyl" style="display: none;">
+    
+    <!--Berry Hibiscus-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Berry Hibiscus">
+      <div class="info">
+        <div class="item-name">Berry Hibiscus</div>
+       
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+     <!--Cool Lime-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Cool Lime">
+      <div class="info">
+        <div class="item-name">Cool Lime</div>
+       
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+     <!--Purple Sky-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Purple Sky">
+      <div class="info">
+        <div class="item-name">Purple Sky</div>
+        <div class="item-description">Sprite, limon, karadut, nane</div>
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+     <!--Raspberry Hibiscus-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Raspberry Hibiscus">
+      <div class="info">
+        <div class="item-name">Raspberry Hibiscus</div>
+        <div class="item-description">Açıklama</div>
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+     <!--Strawberry Hibiscus-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Strawberry Hibiscus">
+      <div class="info">
+        <div class="item-name">Strawberry Hibiscus</div>
+        <div class="item-description">Açıklama</div>
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+     <!--Summer Crush-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Summer Crush">
+      <div class="info">
+        <div class="item-name">Summer Crush</div>
+        <div class="item-description">Sprite, çilek, limon, nane</div>
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+     <!--Sweet Blondy-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Sweet Blondy">
+      <div class="info">
+        <div class="item-name">Sweet Blondy</div>
+        <div class="item-description">Sprite, mango, limon, nane</div>
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+    <!--Tropical Thunder-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Tropical Thunder">
+      <div class="info">
+        <div class="item-name">Tropical Thunder</div>
+        <div class="item-description">Sade soda, mango, limon, nane</div>
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+    </div>
+  </div>
+
+  <!--Mojito Kokteyler -->
+<div class="menu-section">
+  <!-- Başlığa tıklayınca kategori açılıp kapanacak -->
+  <h2 class="section-title" onclick="toggleMenu('mkokteyl')">Mojito Kokteyler</h2>
+  
+  <!--Mojito Kokteyl listesi  -->
+  <div class="menu-items" id="mkokteyl" style="display: none;">
+    
+    <!--Çilekli-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Çilekli">
+      <div class="info">
+        <div class="item-name">Çilekli</div>
+       
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+    <!--Elmalı-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Elmalı">
+      <div class="info">
+        <div class="item-name">Elmalı</div>
+     
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+    <!--Redbull Mojito-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Redbull Mojito">
+      <div class="info">
+        <div class="item-name">Redbull Mojito</div>
+        <div class="item-description">Açıklama</div>
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+    <!--Virgin Mojito-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Virgin Mojito">
+      <div class="info">
+        <div class="item-name">Virgin Mojito</div>
+        <div class="item-description">Açıklama</div>
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+</div>
+  </div>
+
+   <!--Redbull Kokteyler -->
+<div class="menu-section">
+  <!-- Başlığa tıklayınca kategori açılıp kapanacak -->
+  <h2 class="section-title" onclick="toggleMenu('rkokteyl')">Redbull Kokteyler</h2>
+  
+  <!--Redbull Kokteyl listesi  -->
+  <div class="menu-items" id="rkokteyl" style="display: none;">
+    
+    <!--Berry Me-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Berry Me">
+      <div class="info">
+        <div class="item-name">Berry Me</div>
+        <div class="item-description">çilek, limon, yaban mersinli redbull</div>
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+     <!--Pineapple Pop-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Pineapple Pop">
+      <div class="info">
+        <div class="item-name">Pineapple Pop</div>
+        <div class="item-description">ananas, limon tropikal meyve redbull</div>
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+    <!--Twist-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Twist">
+      <div class="info">
+        <div class="item-name">Twist</div>
+        <div class="item-description">limonn, portakal hindistan cevizli redbull</div>
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+      </div>
+    </div>
+
+   <!--Bubble Tea -->
+<div class="menu-section">
+  <!-- Başlığa tıklayınca kategori açılıp kapanacak -->
+  <h2 class="section-title" onclick="toggleMenu('bubble')">Bubble Tea</h2>
+  
+  <!--Bubble Tea listesi  -->
+  <div class="menu-items" id="bubble" style="display: none;">
+    
+    <!--Dünya-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Dünya">
+      <div class="info">
+        <div class="item-name">Dünya</div>
+        <div class="item-description">Kavun, yeşil elma bubble tea</div>
+      </div>
+      <div class="item-price">130₺</div>
+    </div>
+
+     <!--Jupiter-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Jupiter">
+      <div class="info">
+        <div class="item-name">Jupiter</div>
+        <div class="item-description">Espresso, süt, mango bubble tea</div>
+      </div>
+      <div class="item-price">130₺</div>
+    </div>
+
+    <!--Mars-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Mars">
+      <div class="info">
+        <div class="item-name">Mars</div>
+        <div class="item-description">Kışçayı, vanilya, yaban mersinli bubble tea</div>
+      </div>
+      <div class="item-price">130₺</div>
+    </div>
+
+     <!--Neptün-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Neptün">
+      <div class="info">
+        <div class="item-name">Neptün</div>
+        <div class="item-description">Çarkıfelek püresi, limonata, çilek bubble tea</div>
+      </div>
+      <div class="item-price">130₺</div>
+    </div>
+
+    <!--Uranüs-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Uranüs">
+      <div class="info">
+        <div class="item-name">Uranüs</div>
+        <div class="item-description">Çilek püresi, süt, yaban mersinli bubble tea</div>
+      </div>
+      <div class="item-price">130₺</div>
+    </div>
+
+    </div>
+  </div>
+
+   <!--Milkshake-->
+<div class="menu-section">
+  <!-- Başlığa tıklayınca kategori açılıp kapanacak -->
+  <h2 class="section-title" onclick="toggleMenu('milkshake')">Milkshakeler</h2>
+  
+  <!--Milkshake listesi  -->
+  <div class="menu-items" id="milkshake" style="display: none;">
+    
+    <!--Cookie Milkshake-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Cookie Milkshake">
+      <div class="info">
+        <div class="item-name">Cookie Milkshake</div>
+        
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+ <!--Çikolata Milkshake-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Çikolata Milkshake">
+      <div class="info">
+        <div class="item-name">Çikolata Milkshake</div>
+        
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+    <!--Çilek Milkshake-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Çilek Milkshake">
+      <div class="info">
+        <div class="item-name">Çilek Milkshake</div>
+      
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+     <!--Karamel Milkshake-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Karamel Milkshake">
+      <div class="info">
+        <div class="item-name">Karamel Milkshake</div>
+       
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+    <!--Kivi Milkshake-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Kivi Milkshake">
+      <div class="info">
+        <div class="item-name">Kivi Milkshake</div>
+       
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+    <!--Oreo Milkshake-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Oreo Milkshake">
+      <div class="info">
+        <div class="item-name">Oreo Milkshake</div>
+      
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+    <!--Şeftali Milkshake-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Şeftali Milkshake">
+      <div class="info">
+        <div class="item-name">Şeftali Milkshake</div>
+        
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+     <!--Vanilya Milkshake-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Vanilya Milkshake">
+      <div class="info">
+        <div class="item-name">Vanilya Milkshake</div>
+    
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+     </div>
+ </div>
+
+<!--Smoothie-->
+<div class="menu-section">
+  <!-- Başlığa tıklayınca kategori açılıp kapanacak -->
+  <h2 class="section-title" onclick="toggleMenu('smoothie')">Smoothie</h2>
+  
+  <!--Smoothie listesi  -->
+  <div class="menu-items" id="smoothie" style="display: none;">
+    
+    <!--Çilek Smoothie-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Çilek Smoothie">
+      <div class="info">
+        <div class="item-name">Çilek Smoothie</div>
+       
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+     <!--Kavun Smoothie-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Kavun Smoothie">
+      <div class="info">
+        <div class="item-name">Kavun Smoothie</div>
+       
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+    <!--Mango Smoothie-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Mango Smoothie">
+      <div class="info">
+        <div class="item-name">Mango Smoothie</div>
+       
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+     <!--Muz Smoothie-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Muz Smoothie">
+      <div class="info">
+        <div class="item-name">Muz Smoothie</div>
+       
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+     <!--Şeftali Smoothie-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Şeftali Smoothie">
+      <div class="info">
+        <div class="item-name">Şeftali Smoothie</div>
+       
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+     <!--Vanilya Smoothie-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Vanilya Smoothie">
+      <div class="info">
+        <div class="item-name">Vanilya Smoothie</div>
+     
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+      </div>
+    </div>
+
+    <!--Vitamin & Protein Bar-->
+<div class="menu-section">
+  <!-- Başlığa tıklayınca kategori açılıp kapanacak -->
+  <h2 class="section-title" onclick="toggleMenu('barlar')">Vitamin & Protein Barlar</h2>
+  
+  <!--Vitamin & Protein Bar listesi  -->
+  <div class="menu-items" id="barlar" style="display: none;">
+    
+    <!--After Glow-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="After Glow">
+      <div class="info">
+        <div class="item-name">After Glow</div>
+        <div class="item-description">Zencefil, yeşil elma, bal</div>
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+    <!--Baby Pink-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Baby Pink">
+      <div class="info">
+        <div class="item-name">Baby Pink</div>
+        <div class="item-description">Whey protein(23g.), çilek, muz bal</div>
+      </div>
+      <div class="item-price">130₺</div>
+    </div>
+
+    <!--Chocolate Banana-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Chocolate Banana">
+      <div class="info">
+        <div class="item-name">Chocolate Banana</div>
+        <div class="item-description">Whey protein(22g.), çikolata, muz, bal</div>
+      </div>
+      <div class="item-price">140₺</div>
+    </div>
+
+     <!--Coffee Shake-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Coffee Shake">
+      <div class="info">
+        <div class="item-name">Coffee Shake</div>
+        <div class="item-description">Whey protein(20g.) espresso, bal</div>
+      </div>
+      <div class="item-price">150₺</div>
+    </div>
+
+     <!--Çilek Limonata-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Çilek Limonata">
+      <div class="info">
+        <div class="item-name">Çilek Limonata</div>
+      
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+     <!--Green Lime-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Green Lime">
+      <div class="info">
+        <div class="item-name">Green Lime</div>
+        <div class="item-description">Yeşil elma, limon, zencefil</div>
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+    <!--Hangover-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Hangover">
+      <div class="info">
+        <div class="item-name">Hangover</div>
+        <div class="item-description">Ayran, soda, tuz, limon</div>
+      </div>
+      <div class="item-price">100₺</div>
+    </div>
+
+     <!--Karadut Limonata-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Karadut Limonata">
+      <div class="info">
+        <div class="item-name">Karadut Limonata</div>
+       
+      </div>
+      <div class="item-price">100₺</div>
+    </div>
+
+     <!--Sıkma Portakal Suyu-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Sıkma Portakal Suyu">
+      <div class="info">
+        <div class="item-name">Sıkma Portakal Suyu</div>
+        
+      </div>
+      <div class="item-price">100₺</div>
+    </div>
+
+<!--Sour Mash-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Sour Mash">
+      <div class="info">
+        <div class="item-name">Sour Mash</div>
+        <div class="item-description">Çilek yeşil elma kivi bal</div>
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+    <!--Sweet Mix-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Sweet Mix">
+      <div class="info">
+        <div class="item-name">Sweet Mix</div>
+        <div class="item-description">Portakal, çilek, greyfurt</div>
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+       </div>
+     </div>
+
+      <!--Soğuk Kahveler-->
+<div class="menu-section">
+  <!-- Başlığa tıklayınca kategori açılıp kapanacak -->
+  <h2 class="section-title" onclick="toggleMenu('skahveler')">Soğuk Kahveler</h2>
+  
+  <!--Soğuk Kahve listesi  -->
+  <div class="menu-items" id="skahveler" style="display: none;">
+    
+    <!--Affogato-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Affogato">
+      <div class="info">
+        <div class="item-name">Affogato</div>
+        <div class="item-description">2 top dondurma, çift shot espresso</div>
+      </div>
+      <div class="item-price">130₺</div>
+    </div>
+
+    <!--Cold Brew-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Cold Brew">
+      <div class="info">
+        <div class="item-name">Cold Brew</div>
+        
+      </div>
+      <div class="item-price">110₺</div>
+    </div>
+
+    <!--Ice Americano-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Ice Americano">
+      <div class="info">
+        <div class="item-name">Ice Americano</div>
+       
+      </div>
+      <div class="item-price">100₺</div>
+    </div>
+
+     <!--Ice Blueberry White Mocha-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Ice Blueberry White Mocha">
+      <div class="info">
+        <div class="item-name">Ice Blueberry White Mocha</div>
+        <div class="item-description">Yaban mersini, beyaz çikolata</div>
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+     <!--Ice Cocostar Latte-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Ice Cocostar Latte">
+      <div class="info">
+        <div class="item-name">Ice Cocostar Latte</div>
+       
+      </div>
+      <div class="item-price">110₺</div>
+    </div>
+
+     <!--Ice Fındık Latte-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Ice Fındık Latte">
+      <div class="info">
+        <div class="item-name">Ice Fındık Latte</div>
+       
+      </div>
+      <div class="item-price">110₺</div>
+    </div>
+
+     <!--Ice Filtre-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Ice Filtre">
+      <div class="info">
+        <div class="item-name">Ice Filtre Coffe</div>
+   
+      </div>
+      <div class="item-price">100₺</div>
+    </div>
+
+    <!--Ice Karamel Macchiato -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Ice Karamel Macchiato">
+      <div class="info">
+        <div class="item-name">Ice Karamel Macchiato</div>
+      
+      </div>
+      <div class="item-price">110₺</div>
+    </div>
+
+     <!--Ice Latte -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Ice Latte">
+      <div class="info">
+        <div class="item-name">Ice Latte</div>
+   
+      </div>
+      <div class="item-price">100₺</div>
+    </div>
+
+     <!--Ice Mango Latte -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Ice Mango Latte">
+      <div class="info">
+        <div class="item-name">Ice Mango Latte</div>
+       
+      </div>
+      <div class="item-price">110₺</div>
+    </div>
+
+     <!--Ice Vanilya Latte -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Ice Vanilya Latte">
+      <div class="info">
+        <div class="item-name">Ice Vanilya Latte</div>
+       
+      </div>
+      <div class="item-price">110₺</div>
+    </div>
+
+    <!--Ice White Chocolate Mocha -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Ice White Chocolate Mocha">
+      <div class="info">
+        <div class="item-name">Ice White Chocolate Mocha</div>
+       
+      </div>
+      <div class="item-price">110₺</div>
+    </div>
+
+     <!--Sütlü Cold Brew -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Sütlü Cold Brew">
+      <div class="info">
+        <div class="item-name">Sütlü Cold Brew</div>
+       
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+     </div>
+ </div>
+
+ <!--Soğuk Çikolatalar-->
+<div class="menu-section">
+  <!-- Başlığa tıklayınca kategori açılıp kapanacak -->
+  <h2 class="section-title" onclick="toggleMenu('sçikolata')">Soğuk Çikolatalar</h2>
+  
+  <!--Soğuk Çikolata listesi  -->
+  <div class="menu-items" id="sçikolata" style="display: none;">
+    
+    <!--Çilek Aromalı Ice Chocolate -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Çilek Aromalı Ice Chocolate">
+      <div class="info">
+        <div class="item-name">Çilek Aromalı Ice Chocolate</div>
+      
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+     <!--Çilek Aromalı Ice White Chocolate -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Çilek Aromalı Ice White Chocolate">
+      <div class="info">
+        <div class="item-name">Çilek Aromalı Ice White Chocolate</div>
+       
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+    <!--Ice Chocolate -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Ice Chocolate">
+      <div class="info">
+        <div class="item-name">Ice Chocolate</div>
+        
+      </div>
+      <div class="item-price">110₺</div>
+    </div>
+
+<!--Ice White Chocolate -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Ice White Chocolate">
+      <div class="info">
+        <div class="item-name">Ice White Chocolate</div>
+      
+      </div>
+      <div class="item-price">110₺</div>
+    </div>
+
+    <!-- Karadut Aromalı Ice Chocolate -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Karadut Aromalı Ice Chocolate">
+      <div class="info">
+        <div class="item-name">Karadut Aromalı Ice Chocolate</div>
+       
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+     <!-- Muz Aromalı Ice Chocolate -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Muz Aromalı Ice Chocolate">
+      <div class="info">
+        <div class="item-name">Muz Aromalı Ice Chocolate</div>
+        
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+<!-- Muz Aromalı Ice White Chocolate -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Muz Aromalı Ice White Chocolate">
+      <div class="info">
+        <div class="item-name">Muz Aromalı Ice White Chocolate</div>
+        
+      </div>
+      <div class="item-price">120₺</div>
+    </div>    
+
+      </div>
+    </div>
+
+     <!--Soğuk İçecekler-->
+<div class="menu-section">
+  <!-- Başlığa tıklayınca kategori açılıp kapanacak -->
+  <h2 class="section-title" onclick="toggleMenu('siçecek')">Soğuk İçecekler</h2>
+  
+  <!--Soğuk İçecek listesi  -->
+  <div class="menu-items" id="siçecek" style="display: none;">
+    
+    <!--Su -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Su">
+      <div class="info">
+        <div class="item-name">Su</div>
+       <!--<div class="item-description">Açıklama</div>-->
+      </div>
+      <div class="item-price">15₺</div>
+    </div>
+
+     <!--Sade Soda -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Sade Soda">
+      <div class="info">
+        <div class="item-name">Sade Soda</div>
+        <!--<div class="item-description">Açıklama</div>-->
+      </div>
+      <div class="item-price">30₺</div>
+    </div>
+
+    <!--Meyveli Soda -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Meyveli Soda">
+      <div class="info">
+        <div class="item-name">Meyveli Soda</div>
+       <!--<div class="item-description">Açıklama</div>-->
+      </div>
+      <div class="item-price">35₺</div>
+    </div>
+
+    <!--Sprite-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Sprite">
+      <div class="info">
+        <div class="item-name">Sprite</div>
+       <!--<div class="item-description">Açıklama</div>--> 
+      </div>
+      <div class="item-price">70₺</div>
+    </div>
+
+ <!--Cola-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Cola">
+      <div class="info">
+        <div class="item-name">Cola</div>
+       <!--<div class="item-description">Açıklama</div>--> 
+      </div>
+      <div class="item-price">70₺</div>
+    </div>
+
+    <!--Fanta-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Fanta">
+      <div class="info">
+        <div class="item-name">Fanta</div>
+       <!--<div class="item-description">Açıklama</div>--> 
+      </div>
+      <div class="item-price">70₺</div>
+    </div>
+
+    <!--Ayran-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Ayran">
+      <div class="info">
+        <div class="item-name">Ayran</div>
+       <!--<div class="item-description">Açıklama</div>--> 
+      </div>
+      <div class="item-price">50₺</div>
+    </div>
+
+     <!--Fuse Tea-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Fuse Tea">
+      <div class="info">
+        <div class="item-name">Fuse Tea</div>
+       <!--<div class="item-description">Açıklama</div>--> 
+      </div>
+      <div class="item-price">60₺</div>
+    </div>
+
+    <!--Red Bull-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Red Bull">
+      <div class="info">
+        <div class="item-name">Red Bull</div>
+       <!--<div class="item-description">Açıklama</div>--> 
+      </div>
+      <div class="item-price">100₺</div>
+    </div>
+
+     <!--Churchill -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Churchill">
+      <div class="info">
+        <div class="item-name">Churchill</div>
+       <!--<div class="item-description">Açıklama</div>--> 
+      </div>
+      <div class="item-price">60₺</div>
+    </div>
+
+    <!--Hangover -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Hangover">
+      <div class="info">
+        <div class="item-name">Hangover</div>
+       <!--<div class="item-description">Açıklama</div>--> 
+      </div>
+      <div class="item-price">100₺</div>
+    </div>
+
+      </div>
+    </div>
+
+     <!--Sıcak Çikolatalar-->
+<div class="menu-section">
+  <!-- Başlığa tıklayınca kategori açılıp kapanacak -->
+  <h2 class="section-title" onclick="toggleMenu('sıcakçikolata')">Sıcak Çikolatalar</h2>
+  
+  <!--Sıcak Çikolata listesi  -->
+  <div class="menu-items" id="sıcakçikolata" style="display: none;">
+    
+    <!--Çilek Aromalı Sıcak Beyaz Çikolata -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Çilek Aromalı Sıcak Beyaz Çikolata">
+      <div class="info">
+        <div class="item-name">Çilek Aromalı Sıcak Beyaz Çikolata</div>
+       
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+    <!--Çilek Aromalı Sıcak Çikolata -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Çilek Aromalı Sıcak Çikolata">
+      <div class="info">
+        <div class="item-name">Çilek Aromalı Sıcak Çikolata</div>
+       
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+    <!--Karadut Aromalı Sıcak Beyaz Çikolata -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="--Karadut Aromalı Sıcak Beyaz Çikolata">
+      <div class="info">
+        <div class="item-name">Karadut Aromalı Sıcak Beyaz Çikolata</div>
+      
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+    <!--Karadut Aromalı Sıcak Çikolata -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="--Karadut Aromalı Sıcak Çikolata">
+      <div class="info">
+        <div class="item-name">Karadut Aromalı Sıcak Çikolata</div>
+        
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+    <!--Muz Aromalı Sıcak Beyaz Çikolata -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="--Muz Aromalı Sıcak Beyaz Çikolata">
+      <div class="info">
+        <div class="item-name">Muz Aromalı Sıcak Beyaz Çikolata</div>
+        
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+    <!--Muz Aromalı Sıcak Çikolata -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="--Muz Aromalı Sıcak Çikolata">
+      <div class="info">
+        <div class="item-name">Muz Aromalı Sıcak Çikolata</div>
+       
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+    <!--Sıcak Beyaz Çikolata -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="--Sıcak Beyaz Çikolata">
+      <div class="info">
+        <div class="item-name">Sıcak Beyaz Çikolata</div>
+       
+      </div>
+      <div class="item-price">110₺</div>
+    </div>
+
+    <!--Sıcak Çikolata -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="--Sıcak Çikolata">
+      <div class="info">
+        <div class="item-name">Sıcak Çikolata</div>
+       
+      </div>
+      <div class="item-price">110₺</div>
+    </div>
+
+      </div>
+    </div>
+
+     <!--Sıcak Kahveler-->
+<div class="menu-section">
+  <!-- Başlığa tıklayınca kategori açılıp kapanacak -->
+  <h2 class="section-title" onclick="toggleMenu('sıcakkahve')">Sıcak Kahveler</h2>
+  
+  <!--Sıcak Kahve listesi  -->
+  <div class="menu-items" id="sıcakkahve" style="display: none;">
+    
+    <!--Americano-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Americano">
+      <div class="info">
+        <div class="item-name">Americano</div>
+       
+      </div>
+      <div class="item-price">100₺</div>
+    </div>
+
+    <!--Espresso-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Espresso">
+      <div class="info">
+        <div class="item-name">Espresso</div>
+       
+      </div>
+      <div class="item-price">90₺</div>
+    </div>
+
+<!--Double Espresso-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Double Espresso">
+      <div class="info">
+        <div class="item-name">Double Espresso</div>
+       
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+<!--Oreo Coffee-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Oreo Coffee">
+      <div class="info">
+        <div class="item-name">Oreo Coffee</div>
+       
+      </div>
+      <div class="item-price">110₺</div>
+    </div>
+
+<!--Cappuccino-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Cappuccino">
+      <div class="info">
+        <div class="item-name">Cappuccino</div>
+       
+      </div>
+      <div class="item-price">100₺</div>
+    </div>
+
+    <!--Latte-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Latte">
+      <div class="info">
+        <div class="item-name">Latte</div>
+       
+      </div>
+      <div class="item-price">100₺</div>
+    </div>
+
+    <!--Beyaz Çikolatalı Latte-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Beyaz Çikolatalı Latte">
+      <div class="info">
+        <div class="item-name">Beyaz Çikolatalı Latte</div>
+      
+      </div>
+      <div class="item-price">110₺</div>
+    </div>
+
+    <!--Cocostar Latte-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Cocostar Latte">
+      <div class="info">
+        <div class="item-name">Cocostar Latte</div>
+       
+      </div>
+      <div class="item-price">110₺</div>
+    </div>
+
+    <!--Fındıklı Latte -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Fındıklı Latte">
+      <div class="info">
+        <div class="item-name">Fındıklı Latte</div>
+        
+      </div>
+      <div class="item-price">110₺</div>
+    </div>
+
+    <!--Karadut Latte-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Karadut Latte">
+      <div class="info">
+        <div class="item-name">Karadut Latte</div>
+       
+      </div>
+      <div class="item-price">110₺</div>
+    </div>
+
+    <!--Karamel Latte-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Karamel Latte">
+      <div class="info">
+        <div class="item-name">Karamel Latte</div>
+      
+      </div>
+      <div class="item-price">110₺</div>
+    </div>
+
+    <!--Mango Latte-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Mango Latte">
+      <div class="info">
+        <div class="item-name">Mango Latte</div>
+        
+      </div>
+      <div class="item-price">110₺</div>
+    </div>
+
+<!--Siyah Çikolatalı Latte-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Siyah Çikolatalı Latte">
+      <div class="info">
+        <div class="item-name">Siyah Çikolatalı Latte</div>
+      
+      </div>
+      <div class="item-price">110₺</div>
+    </div>
+
+    <!--Tuzlu Karamel Latte-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Tuzlu Karamel Latte">
+      <div class="info">
+        <div class="item-name">Tuzlu Karamel Latte</div>
+       
+      </div>
+      <div class="item-price">110₺</div>
+    </div>
+
+    <!--Vanilyalı Latte-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Vanilyalı Latte">
+      <div class="info">
+        <div class="item-name">Vanilyalı Latte</div>
+        
+      </div>
+      <div class="item-price">110₺</div>
+    </div>
+
+    <!--Blueberry White Mocha-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Blueberry White Mocha">
+      <div class="info">
+        <div class="item-name">Blueberry White Mocha</div>
+        
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+    <!--Siyah Çikolatalı Mocha-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Siyah Çikolatalı Mocha">
+      <div class="info">
+        <div class="item-name">Siyah Çikolatalı Mocha</div>
+        
+      </div>
+      <div class="item-price">110₺</div>
+    </div>
+
+    <!--White Mocha-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="White Mocha">
+      <div class="info">
+        <div class="item-name">White Mocha</div>
+       
+      </div>
+      <div class="item-price">110₺</div>
+    </div>
+
+    <!--Espresso Macchiato -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Espresso Macchiato">
+      <div class="info">
+        <div class="item-name">Espresso Macchiato</div>
+        
+      </div>
+      <div class="item-price">100₺</div>
+    </div>
+
+    <!--Karamel Macchiato -->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Karamel Macchiato">
+      <div class="info">
+        <div class="item-name">Karamel Macchiato</div>
+       
+      </div>
+      <div class="item-price">110₺</div>
+    </div>
+
+    <!--Flat White-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Flat White">
+      <div class="info">
+        <div class="item-name">Flat White</div>
+        <div class="item-description">Double shot espresso ve süt kreması</div>
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+     <!--Hazır Kahve-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Hazır Kahve">
+      <div class="info">
+        <div class="item-name">Hazır Kahve</div>
+      
+      </div>
+      <div class="item-price">100₺</div>
+    </div>
+
+     <!--Sütlü Hazır Kahve-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Sütlü Hazır Kahve">
+      <div class="info">
+        <div class="item-name">Sütlü Hazır Kahve</div>
+       
+      </div>
+      <div class="item-price">120₺</div>
+    </div>
+
+      </div>
+    </div>
+
+    <!--Salepler -->
+<div class="menu-section">
+  <!-- Başlığa tıklayınca kategori açılıp kapanacak -->
+  <h2 class="section-title" onclick="toggleMenu('salep')">Salepler </h2>
+  
+  <!--Salep listesi  -->
+  <div class="menu-items" id="salep" style="display: none;">
+    
+    <!--Salep-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Salep">
+      <div class="info">
+        <div class="item-name">Salep</div>
+        
+      </div>
+      <div class="item-price">100₺</div>
+    </div>
+
+    <!--Damla Sakızlı Salep-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Damla Sakızlı Salep">
+      <div class="info">
+        <div class="item-name">Damla Sakızlı Salep</div>
+       
+      </div>
+      <div class="item-price">110₺</div>
+    </div>
+
+    <!--Bademli Salep-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Bademli Salep">
+      <div class="info">
+        <div class="item-name">Bademli Salep</div>
+       
+      </div>
+      <div class="item-price">110₺</div>
+    </div>
+
+    <!--Chai Tea Latte-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Chai Tea Latte">
+      <div class="info">
+        <div class="item-name">Chai Tea Latte</div>
+       
+      </div>
+      <div class="item-price">110₺</div>
+    </div>
+
+    <!--Sıcak Ballı Süt-->
+    <div class="menu-item">
+      <img class="item-image" src="images/deneme.png" alt="Sıcak Ballı Süt">
+      <div class="info">
+        <div class="item-name">Sıcak Ballı Süt</div>
+       
+      </div>
+      <div class="item-price">100₺</div>
+    </div>
+    
+     </div>
+    </div>
+
+    <!--Nargile-->
+<div class="menu-section">
+  <!-- Başlığa tıklayınca kategori açılıp kapanacak -->
+  <h2 class="section-title" onclick="toggleMenu('nargile')">Nargileler</h2>
+  
+  <!--Nargile listesi  -->
+  <div class="menu-items" id="nargile" style="display: none;">
+
+    </div>
+  </div>
+
+  <script>
+    // toggleMenu fonksiyonu kategori başlığına tıklanınca çalışıyor
+    function toggleMenu(id) {
+      const section = document.getElementById(id);
+      if (section.style.display === "none") {
+        section.style.display = "block";
+      } else {
+        section.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>

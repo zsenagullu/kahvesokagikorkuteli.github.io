@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kahve Sokağı Korkuteli</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #ffffff; /* Tamamen beyaz arka plan */
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+    }
+
+    .welcome-container {
+      text-align: center;
+      padding: 40px 30px;
+      background: #8B4513; /* Kahverengi arka plan */
+      color: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      max-width: 450px;
+      width: 90%;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Logo */
+    .logo {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 20px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #fff;
+      padding: 5px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      opacity: 0.95;
+    }
+
+    .description {
+      font-size: 1rem;
+      margin-bottom: 30px;
+      opacity: 0.9;
+      line-height: 1.5;
+    }
+
+    .menu-button {
+      background: #fff;
+      color: #8B4513;
+      padding: 14px 40px;
+      border: none;
+      border-radius: 40px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .menu-button:hover {
+      background: #f2f2f2;
+      transform: translateY(-4px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    }
+
+    /* Mobil uyum */
+    @media (max-width: 480px) {
+      h1 { font-size: 2rem; }
+      .subtitle { font-size: 1rem; }
+      .description { font-size: 0.95rem; }
+      .menu-button { padding: 12px 30px; font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="welcome-container">
+    <!-- Logo -->
+    <img src="images/deneme.png" alt="Kafe Logosu" class="logo">
+
+    <h1>Kahve Sokağı Korkuteli</h1>
+    <p class="subtitle">Hoşgeldiniz!</p>
+
+    <p class="description">
+      Özenle hazırlanmış lezzetli yemeklerimiz ve özel kahvelerimizle 
+      unutulmaz bir deneyim yaşayın. Menümüzü görüntülemek için 
+      butona tıklayın.
+    </p>
+
+    <a href="menu.html" class="menu-button"> Menüye Git</a>
+  </div>
+</body>
+</html>
